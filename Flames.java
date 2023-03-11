@@ -1,58 +1,109 @@
 import java.util.*;
-public class Flames {
-    
-    
-    
+public class Flames
+{
     public static void main(String[] args)
     {
-        String name1;
-        String name2;
+        String str1;
+        String str2;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter name1 : ");
-        name1 = sc.next();
+        str1 =  sc.next();
         System.out.println("Enter name2 : ");
-        name2 = sc.next();
-        System.out.println("Name1 : "+name1);
-        System.out.println("Name2 : "+name2);
+        str2 = sc.next();
+        System.out.println("name1 : "+str1);
+        System.out.println("name2 : "+str2);
         Flames obj = new Flames();
-        obj.str_to_char(name1,name2);
+        obj.str_to_char(str1,str2);
     }
-    void str_to_char(String name1,String name2)
+    void str_to_char(String str1,String str2)
     {
-        int size1 = name1.length();
-        int size2 = name2.length();
-        char[] Name1 =  new char[size1];
-        char[] Name2 = new char[size2];
-        for(int i=0;i<size1;i++)
+        int ch1 = str1.length();
+        int ch2 = str2.length();
+        char[] Name1 = new char[ch1];
+        char[] Name2 = new char[ch2];
+        int count1=0;
+        int count2=0;
+        int total;
+        for(int i=0;i<str1.length();i++)
         {
-            Name1[i] = name1.charAt(i);
+            Name1[i] = str1.charAt(i);
         }
-        /*for(char x: Name1)
+        /*for(char x:Name1)
         {
             System.out.println(x);
         }*/
-        for(int i=0;i<size2;i++)
+        for(int i=0;i<str2.length();i++)
         {
-            Name2[i] = name2.charAt(i);
+            Name2[i] = str2.charAt(i);
         }
-        /*for(char x: Name2)
+        /*for(char y : Name2)
         {
-            System.out.println(x);
+            System.out.println(y);
         }*/
-    }
-    void compare(char Name1,char Name2)
-    {
-        for(int i=0;i<Name1.length();i++)
+        if(Name1.length>Name2.length){
+        for(int i=0;i<Name1.length;i++)
         {
-            for(int j=0;j<Name2.length();j++)
+            for(int j=0;j<Name2.length;j++)
             {
-                if(Name1[i] == Name2[j])
+                if (Name1[i] == Name2[j])
                 {
-
+                    Name1[i] = Name2[j] =  '*';
                 }
             }
         }
-    }
-    
-}
+        }
+        else
+        {
+            for(int j=0;j<Name2.length;j++)
+            {
+                for(int i=0;i<Name1.length;i++)
+                {
+                    if (Name1[i] == Name2[j])
+                    {
+                        Name1[i] = Name2[j] = '*';
+                    }
+                }   
+        }
 
+        }
+        for(char x : Name1)
+        {
+            System.out.print(x);
+            
+        }
+        System.out.println();
+        for(char y : Name2)
+        {
+            System.out.print(y);
+        }
+        //counting no.of remaing characters in Name1
+        int ch3 = Name1.length;
+        int ch4 = Name2.length;
+        for(int i = 0;i<ch3;i++)
+        {   if((Name1[i]>='A'&&Name1[i]<='Z')|| (Name1[i]>='a'&& Name1[i]<='z'))
+            {
+                 count1 = count1+1;
+           
+         }
+        }
+        //System.out.println(count1);
+        for(int i = 0;i<ch4;i++)
+        {
+            if((Name2[i]>='A'&&Name2[i]<='z')||(Name2[i]>='a'&&Name2[i]<='z'))
+            {
+                count2 = count2+1;
+            }
+        }
+        //System.out.println(count2);
+        total = count1+count2;
+        //System.out.println(total); 
+    }
+    void check_flames(int total)
+    {
+        char[] flames = new char[]{'F','L','A','M','E','S'};
+        for(int i=0;i<total.length;i++)
+        {
+            
+        }
+    }
+}
